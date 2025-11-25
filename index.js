@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to the API');
 });
 app.use('/api/auth', authRoutes);
-app.use('/api/user', userRoutes);
+app.use('/api/user-info', userRoutes);
 
 const PORT = process.env.PORT || 2000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

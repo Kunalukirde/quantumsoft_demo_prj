@@ -44,12 +44,6 @@ exports.loginUser = async (req, res) => {
 
         // Remove password before sending user data
         const { password: _, ...safeUser } = fetchedUser;
-
-        res.status(200).json({
-            status : 200,
-            message: 'Login successfully',
-            user: safeUser,
-            token
-        });
+        res.status(200).json({ status : 200, message: 'Login successfully', user: safeUser, token });
     });
 };

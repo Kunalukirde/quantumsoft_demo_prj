@@ -1,7 +1,7 @@
 const db = require('../db.js');
 
 exports.getUserDetails = async (req, res) => { 
-    const userId = req.params.id;
+    const userId = req.user.id;
 
 
         const sql = `SELECT id, f_Name, l_Name, dob, email, mobile FROM registeruser WHERE id = ?`;
