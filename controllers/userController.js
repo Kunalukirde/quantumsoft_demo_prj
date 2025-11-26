@@ -96,7 +96,7 @@ exports.getUserDetails = async (req, res) => {
         return res.status(200).json({
             status: 200,
             message: "User details fetched successfully",
-            user: combined
+            data: combined
         });
 
     } catch (err) {
