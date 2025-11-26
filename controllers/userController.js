@@ -46,7 +46,7 @@ exports.AddUserDetails = async (req, res) => {
                 res.status(201).json({
                     status: 201,
                     message: 'User info saved successfully',
-                    userInfoId: result.insertId
+                    userId: result.insertId
                 });
             });
         });
