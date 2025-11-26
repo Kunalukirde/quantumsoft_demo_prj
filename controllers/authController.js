@@ -26,14 +26,14 @@ exports.loginUser = async (req, res) => {
     const sql = `SELECT * FROM registeruser WHERE email = ?`;
     db.query(sql, [email], async (err, results) => {
         if (err || results.length === 0) {
-            return res.status(404).json({status : 404, message: 'User does not exist' });
+            return res.status(404).json({status : 404, message: 'User does not exist' ,mandatoryDataFound : false});
         }
 
         const fetchedUser = results[0];
         const passwordMatch = await bcrypt.compare(password, fetchedUser.password);
 
         if (!passwordMatch) {
-            return res.status(401).json({status : 401, message: 'Invalid email or password' });
+            return res.status(401).json({status : 401, message: 'Invalid email or password' ,mandatoryDataFound : false});
         }
          // Create JWT Token
         const token = jwt.sign(
